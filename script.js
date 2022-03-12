@@ -1,6 +1,12 @@
 'use strict';
 
 // Selecting elements
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const rulesEl = document.querySelector('.show-modal');
+const btnCloseModal = document.querySelector('.close-modal');
+const title = document.getElementById('title');
+
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const score0El = document.querySelector('#score--0');
@@ -24,7 +30,7 @@ const initializeGame = function () {
   // Setting initial scores
   score0El.textContent = score1El.textContent = 0;
   currentScoreP0.textContent = currentScoreP1.textContent = 0;
-
+  title.textContent = 'Dice Roll';
   hideDice();
 
   player0El.classList.remove('player--winner');
@@ -39,7 +45,7 @@ const hideDice = () => dice.classList.add('hidden');
 //run initialize
 initializeGame();
 
-// Switch Player
+// Switch Player function
 const switchPlayer = function () {
   // Setting current score 0
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -51,6 +57,21 @@ const switchPlayer = function () {
   player0El.classList.toggle('player--active');
   player1El.classList.toggle('player--active');
 };
+
+// Function to handle modal for displaying rules
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+//Rules display
+rulesEl.addEventListener('click', openModal);
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 
 // 1. Generating a random dice roll
 btnRoll.addEventListener('click', function () {
@@ -88,7 +109,7 @@ btnHold.addEventListener('click', function () {
       // Finish the game
       hideDice();
       playState = false;
-
+      title.textContent = `Player ${activePlayer === 0 ? '1' : '2'} Wins 🎉🏆`;
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');

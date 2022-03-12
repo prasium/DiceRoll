@@ -24,8 +24,8 @@ body {
 
 /* LAYOUT */
 .header {
-  margin: 2rem 1rem;
-  font-size: 32px;
+  margin-top: 12px;
+  font-size: 24px;
   font-weight: bold;
   color: #ddd;
 }
@@ -33,7 +33,7 @@ body {
 .main {
   position: relative;
   width: 100rem;
-  height: 60rem;
+  height: 55rem;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   filter: blur();
@@ -67,7 +67,7 @@ body {
   font-size: 8rem;
   font-weight: 300;
   color: #c7365f;
-  margin-bottom: auto;
+  margin-bottom: 4rem;
 }
 
 .player--active {
@@ -178,14 +178,13 @@ body {
 }
 
 .show-modal {
-  font-size: 2rem;
+  font-size: 24px;
   font-weight: 600;
-  padding: 1.75rem 3.5rem;
-  margin: 1rem 1rem;
+  padding: 1.2rem 2.4rem;
+  margin: 1.2rem 1rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.6);
   color: #444;
-
   border-radius: 10rem;
   cursor: pointer;
 }
@@ -215,7 +214,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-
+  font-size: 2em;
   background-color: white;
   padding: 6rem;
   border-radius: 5px;
